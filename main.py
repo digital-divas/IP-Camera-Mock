@@ -1,4 +1,5 @@
 import dotenv
+import subprocess
 
 dotenv.load_dotenv()
 
@@ -10,6 +11,9 @@ import time
 import av
 
 from animation import Animation
+
+if os.path.isfile("./mediamtx"):
+    subprocess.Popen(["./mediamtx"])
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(

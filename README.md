@@ -64,7 +64,7 @@ ffplay rtsp://localhost:8554/live
 
 ## Next steps
 
-- [ ] build an docker image that generates the RTSP immediately.
+- [X] build an docker image that generates the RTSP immediately.
 Something like `docker run -e optional_env_name=env_value -p 8554:8554 -p 8890:8890/udp -p 8189:8189/udp IP-Camera-Mock`.
 To achieve that we could try to extend MediaMTX image or get an empty python image and install MediaMtx on it (MediaMTX provides an standalone binary as described on [their README](https://github.com/bluenviron/mediamtx#standalone-binary) ).
 Try to use maybe systemctl to have both MediaMTX and the python script running at the same time.
