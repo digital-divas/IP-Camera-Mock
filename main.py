@@ -28,13 +28,19 @@ height = int(os.getenv("CAMERA_HEIGHT", "320"))
 codec_name = os.getenv("CODEC_NAME", "hevc")
 
 while True:
-    container = av.open(output_stream, mode="w", format="rtsp")
+    format = "rtsp"
+
+    if output_stream.split(":")[0] == "rtmp":
+        format = "flv"
+        # 'flv' format does not support 'hevc' codec for this version of ffmpeg
+        # TODO: maybe build a custom ffmpeg or install a plugin so it can support hevc over flv?
+        codec_name = "h264"
+
+    container = av.open(output_stream, mode="w", format=format)
     stream = container.add_stream(rate=fps, codec_name=codec_name)
     stream.width = width
     stream.height = height
     custom_video = Animation(fps, stream)
-
-    start_time = time.time()
 
     while True:
         pix = custom_video.loop()

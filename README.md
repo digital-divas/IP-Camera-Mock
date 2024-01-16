@@ -68,6 +68,7 @@ ffplay rtsp://localhost:8554/live
 Something like `docker run -e optional_env_name=env_value -p 8554:8554 -p 8890:8890/udp -p 8189:8189/udp IP-Camera-Mock`.
 To achieve that we could try to extend MediaMTX image or get an empty python image and install MediaMtx on it (MediaMTX provides an standalone binary as described on [their README](https://github.com/bluenviron/mediamtx#standalone-binary) ).
 Try to use maybe systemctl to have both MediaMTX and the python script running at the same time.
+- [X] support RTMP
 - [ ] generate an mock for ONVIF showing some response to the stream screen
 - [ ] configure fake detections of vehicle plates
 - [ ] configure fake detections of people's face
